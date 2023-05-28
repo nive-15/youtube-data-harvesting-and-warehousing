@@ -38,10 +38,10 @@ st.title(':green[Youtube Data Harvesting]')
 # Data collection zone
 col1, col2 = st.columns(2)
 with col1:
-    st.header(':violet[Data collection zone]')
+    st.header(':blue[Data collection zone]')
     st.write ('(Note:- This zone **collect data** by using channel id and **stored it in the :green[MongoDB] database**.)')
     channel_id = st.text_input('**Enter 11 digit channel_id**')
-    st.write('''Get data and stored it in the MongoDB database to click below **:blue['Get data and stored']**.''')
+    st.write('''Get data and stored it in the MongoDB database to click below **:red['Get data and stored']**.''')
     Get_data = st.button('**Get data and stored**')
 
     # Define Session state to Get data button
@@ -265,10 +265,10 @@ with col1:
         client = pymongo.MongoClient('mongodb://localhost:27017/')
 
         # create a database or use existing one
-        mydb = client['Youtube_DB']
+        mydb = client['yt_scraping']
 
         # create a collection
-        collection = mydb['Youtube_data']
+        collection = mydb['ytdata']
 
         # define the data to insert
         final_output_data = {
@@ -296,10 +296,10 @@ with col2:
     client = pymongo.MongoClient("mongodb://localhost:27017/")
 
     # create a database or use existing one
-    mydb = client['Youtube_DB']
+    mydb = client['yt_scraping']
 
     # create a collection
-    collection = mydb['Youtube_data']
+    collection = mydb['ytdata']
 
     # Collect all document names and give them
     document_names = []

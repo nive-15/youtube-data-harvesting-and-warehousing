@@ -1,7 +1,6 @@
 # ==================================================       /     IMPORT LIBRARY    /      =================================================== #
 
 # [Youtube API libraries]
-from urllib.error import HTTPError
 import googleapiclient.discovery
 from googleapiclient.discovery import build
 
@@ -75,7 +74,7 @@ with col1:
                     
                     return channel_response
                 
-                except HTTPError as e:
+                except HttpError as e:
                     st.error('Server error (or) Check your internet connection (or) Please Try again after a few minutes', icon='🚨')
                     st.write('An error occurred: %s' % e)
                     return None
@@ -117,10 +116,10 @@ with col1:
             while True:
                 # Get playlist items
                 request = youtube.playlistItems().list(
-                   part='contentDetails',
-                   playlistId=channel_playlist_id,
-                   maxResults=50,
-                   pageToken=next_page_token)
+                    part='contentDetails',
+                    playlistId=channel_playlist_id,
+                    maxResults=50,
+                    pageToken=next_page_token)
                 response = request.execute()
 
                 # Get video IDs
@@ -605,4 +604,4 @@ elif question_tosql == '10. Which videos have the highest number of comments, an
 # SQL DB connection close
 connect_for_question.close()
 
-# ===============================================   /   COMPLETED   /   
+# ===============================================   /   COMPLETED   /   ====================================================================== #
